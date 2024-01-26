@@ -1,0 +1,9 @@
+.contenedor h1{
+font-size: var(--md);
+color: var(--gris);
+}
+.contenedor h2{
+    text-transform: capitalize;
+    font-size: var(--lg);
+    color: var(--azul);
+}

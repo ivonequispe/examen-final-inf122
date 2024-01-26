@@ -1,0 +1,12 @@
+.contenedor{
+    display: grid;
+    grid-template-columns: 1 1fr;
+    justify-content: center;
+    align-items: center;
+    
+}
+/* aqui se puede  aplicar  la img  ya que la imagen se encuentra dentro de un contenedor*/
+.contenedor img{
+    border-radius: 50%;
+    object-fit: cover;
+}
