@@ -22,3 +22,7 @@ body {
   background-color: var(--primary-background);
   font-family: Poppins;
 }
+p{
+  
+  font-size: var(--sm);
+}

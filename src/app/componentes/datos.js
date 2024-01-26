@@ -8,18 +8,20 @@ function pokemon() {
 
 
     const [estado, setEstado] = useState("esperando");
-    
-    const [tipe, setTipe]=useState();
-     const [height, setHeight]=useState();
-    const [width,setWidth]=useState();
+
+    const [tipe, setTipe] = useState();
+    const [tipe2, setTipe2] = useState([null]);
+    const [height, setHeight] = useState();
+    const [width, setWidth] = useState();
     const [abilidad, setAbilidad] = useState([null]);
+    const [abilidad2, setAbilidad2] = useState([null]);
 
-    const[hp,setHp ]=useState();
-    const[atak,setAtak ]=useState();
-    const[ defensa,seDefensa]=useState();
-    const[speed,setSpeed ]=useState();
+    const [hp, setHp] = useState();
+    const [atak, setAtak] = useState();
+    const [defensa, seDefensa] = useState();
+    const [speed, setSpeed] = useState();
 
-    
+
 
     const url = "https://pokeapi.co/api/v2/pokemon/ivysaur";
     //const url="https://dog.ceo/api/breed/pitbull/images/random";
@@ -28,34 +30,43 @@ function pokemon() {
         // aqui se hace recuest
         fetch(url)
             .then(res => res.json())
-            .then(data => { setEstado(data.species.name), setAbilidad(data.abilities[0].ability.name) });
+            .then(data => {
+                setEstado(data.species.name),
+                setAbilidad(data.abilities[0].ability.name),
+                setAbilidad2(data.abilities[1].ability.name),
+                setTipe(data.types[0].type.name), setTipe2(data.types[1].type.name),
+                setHeight(data.height/10),
+                setWidth(data.weight/10)
+                
+            });
     }, []);
+    let altura={height}/10;
     return (
         <div className={style.contenedor}>
             <h1>Abaut</h1>
-            
+
             <div className={style.datos}>
 
 
-                <div>
+                <div className={style.dato}>
 
                     <p> Tipe</p>
                     <p> height</p>
                     <p> width</p>
                     <p> Abilities</p>
-                    
+
 
 
                 </div>
 
 
-                <div>
+                <div className={style.resultados}>
 
-                    <p> Tipe</p>
-                    <p> height</p>
-                    <p> width</p>
-                    <p> Abilities</p>
-                    
+                    <p>{tipe}, {tipe2} </p>
+                    <p> {height}m</p>
+                    <p> {width}kg</p>
+                    <p> {abilidad},{abilidad2}</p>
+
 
                 </div>
 
@@ -63,35 +74,36 @@ function pokemon() {
             </div>
 
 
-            <h2> Stats</h2>
+            <h1> Stats</h1>
 
             <div className={style.datos}>
 
 
-<div>
+                <div className={style.dato}>
 
-    <p> Tipe</p>
-    <p> height</p>
-    <p> width</p>
-    <p> Abilities</p>
-    
-
-
-</div>
+                    <p> hp</p>
+                    <p>atak</p>
+                    <p> defensa</p>
+                    <p> speed</p>
+                    
 
 
-<div>
-
-    <p> Tipe</p>
-    <p> height</p>
-    <p> width</p>
-    <p> Abilities</p>
-    
-
-</div>
+                </div>
 
 
-</div>
+                <div className={style.resultados}>
+
+                <p> {hp}</p>
+                    <p>{atak}</p>
+                    <p> {defensa}</p>
+                    <p> {speed}</p>
+                    
+
+
+                </div>
+
+
+            </div>
         </div>
     );
 }

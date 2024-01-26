@@ -1,6 +1,10 @@
+.contenedor{
+    background-color: var(--primary-background);
+}
 .contenedor h1{
 font-size: var(--md);
 color: var(--gris);
+
 }
 .contenedor h2{
     text-transform: capitalize;
